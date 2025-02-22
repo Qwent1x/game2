@@ -52,6 +52,8 @@ class Hero():
         base.accept('w' + '-repeat' , self.forward)
         base.accept('e', self.up)
         base.accept('e' + '-repeat' , self.up)
+        base.accept('q', self.down)
+        base.accept('q' + '-repeat' , self.down)
         base.accept('z', self.changeMode)
         base.accept('b', self.build)
         base.accept('v', self.destroy)
@@ -115,6 +117,9 @@ class Hero():
 
     def up(self):
         self.hero.setZ(self.hero.getZ() + 1)
+
+    def down(self):
+        self.hero.setZ(self.hero.getZ() - 1)
 
     def changeMode(self):
         if self.mode == True:
