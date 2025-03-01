@@ -83,7 +83,7 @@ class Mapmanager():
             self.addBlock(new)
 
     def delBlockFrom(self, position):
-        x, y, z = self.HighestEmpty(pos)
+        x, y, z = self.findHighesEmpty(pos)
         pos  = x, y, z - 1
         blocks = self.findBlocks(pos)
         for block in blocks:
@@ -92,7 +92,7 @@ class Mapmanager():
     def saveMap(self):
         blocks = self.land.getChildren()
         with open('my_map.dat', 'wb') as fout:
-            pickle.dump(len(block), fout)
+            pickle.dump(len(blocks), fout)
             for block in blocks:
                 x, y, z = block.getPos()
                 pos = (int(x), int(y), int(z))
@@ -102,6 +102,6 @@ class Mapmanager():
         self.clear()
         with open('my_map.dat', 'rb') as fin:
             length = pickle.load(fin)
-            for i in range(lenth):
+            for i in range(length):
                 pos = pickle.load(fin)
                 self.addBlock(pos) 
