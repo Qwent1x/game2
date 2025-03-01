@@ -23,7 +23,50 @@ class Mapmanager():
         self.block.setColor(self.color)
         # Додаємо блок до "землі"
         self.block.setTag("at", str(pos))
+        self.block = self.base.loader.loadModel(self.model)
     
+    def addFloor(self, position):
+        pos = position
+        # Завантаження моделі та текстури
+        self.block = self.base.loader.loadModel(self.model)  # Використовуємо self.base.loader
+        self.block.setTexture(self.base.loader.loadTexture("floor.png"))
+        self.block.setPos(position)
+        self.block.reparentTo(self.land)
+        self.color = self.getColor(position[2])
+        self.block.setColor(self.color)
+        # Додаємо блок до "землі"
+        self.block.setTag("at", str(pos))
+        self.block = self.base.loader.loadModel(self.model)
+        
+    def addBlock2(self, position):
+        pos = position
+        # Завантаження моделі та текстури
+        self.block = self.base.loader.loadModel(self.model)  # Використовуємо self.base.loader
+        self.block.setTexture(self.base.loader.loadTexture("block.png"))
+        self.block.setPos(position)
+        self.block.reparentTo(self.land)
+        self.color = self.getColor(position[2])
+        self.block.setColor(self.color)
+        # Додаємо блок до "землі"
+        self.block.setTag("at", str(pos))
+        self.block = self.base.loader.loadModel(self.model)
+    
+    def addWhite(self, position):
+        pos = position
+        # Завантаження моделі та текстури
+        self.block = self.base.loader.loadModel(self.model)  # Використовуємо self.base.loader
+        self.block.setTexture(self.base.loader.loadTexture("white.png"))
+        self.block.setPos(position)
+        self.block.reparentTo(self.land)
+        self.color = self.getColor(position[2])
+        self.block.setColor(self.color)
+        # Додаємо блок до "землі"
+        self.block.setTag("at", str(pos))
+        self.block = self.base.loader.loadModel(self.model)
+    # Встановлення позиції та кольору блоку
+    
+
+        # Додаємо блок до "землі"
 
     def startNew(self):
     #     # Скидання або оновлення "землі"
@@ -81,6 +124,27 @@ class Mapmanager():
         new = self.findHighestEmpty(pos)
         if new[2] <= z + 1:
             self.addBlock(new)
+
+    def buildFloor(self, pos):
+        x, y, z = pos
+        new = self.findHighestEmpty(pos)
+        if new[2] <= z + 1:
+            self.addFloor(new)
+
+    def buildBlock2(self, pos):
+        x, y, z = pos
+        new = self.findHighestEmpty(pos)
+        if new[2] <= z + 1:
+            self.addBlock2(new)
+
+    def buildWhite(self, pos):
+        x, y, z = pos
+        new = self.findHighestEmpty(pos)
+        if new[2] <= z + 1:
+            self.addWhite(new)
+
+
+
 
     def delBlockFrom(self, position):
         x, y, z = self.findHighesEmpty(pos)

@@ -22,7 +22,7 @@ class Hero():
         self.cameraOn = True
 
     def cameraUp(self):
-        base.mouseInterfaceNode.setPos(0, 0, 0)
+        base.mouseInterfaceNode.setPos(-12.5, -12.5, -4)
         base.camera.reparentTo(render)
         base.enableMouse()
         self.cameraOn = False
@@ -56,6 +56,9 @@ class Hero():
         base.accept('q' + '-repeat' , self.down)
         base.accept('z', self.changeMode)
         base.accept('b', self.build)
+        base.accept('1', self.build1)
+        base.accept('2', self.build2)
+        base.accept('3', self.build3)
         base.accept('v', self.destroy)
 
 
@@ -150,6 +153,30 @@ class Hero():
             self.land.addBlock(pos)
         else:
             self.land.buildBlock(pos)
+
+    def build1(self, angle):
+        angle = self.hero.getH() % 360
+        pos = self.look_at(angle)
+        if self.mode:
+            self.land.addFloor(pos)
+        else:
+            self.land.buildFloor(pos)
+
+        def build2(self, angle):
+        angle = self.hero.getH() % 360
+        pos = self.look_at(angle)
+        if self.mode:
+            self.land.addBlock2(pos)
+        else:
+            self.land.buildBlock2(pos)
+
+        def build3(self, angle):
+        angle = self.hero.getH() % 360
+        pos = self.look_at(angle)
+        if self.mode:
+            self.land.addWhite(pos)
+        else:
+            self.land.buildWhite(pos)    
 
     def destroy(self):
         angle = self.hero.getH() % 360
