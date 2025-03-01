@@ -42,7 +42,7 @@ class Mapmanager():
         pos = position
         # Завантаження моделі та текстури
         self.block = self.base.loader.loadModel(self.model)  # Використовуємо self.base.loader
-        self.block.setTexture(self.base.loader.loadTexture("block.png"))
+        self.block.setTexture(self.base.loader.loadTexture("block2.png"))
         self.block.setPos(position)
         self.block.reparentTo(self.land)
         self.color = self.getColor(position[2])

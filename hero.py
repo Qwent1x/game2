@@ -154,7 +154,7 @@ class Hero():
         else:
             self.land.buildBlock(pos)
 
-    def build1(self, angle):
+    def build1(self):
         angle = self.hero.getH() % 360
         pos = self.look_at(angle)
         if self.mode:
@@ -162,7 +162,7 @@ class Hero():
         else:
             self.land.buildFloor(pos)
 
-        def build2(self, angle):
+    def build2(self):
         angle = self.hero.getH() % 360
         pos = self.look_at(angle)
         if self.mode:
@@ -170,7 +170,7 @@ class Hero():
         else:
             self.land.buildBlock2(pos)
 
-        def build3(self, angle):
+    def build3(self):
         angle = self.hero.getH() % 360
         pos = self.look_at(angle)
         if self.mode:
